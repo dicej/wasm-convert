@@ -1,3 +1,5 @@
+#![deny(warnings)]
+
 use {
     wasm_encoder::{
         BlockType, ConstExpr, EntityType, ExportKind, GlobalType, HeapType, MemArg, MemoryType,
@@ -85,20 +87,8 @@ impl From<IntoTableType> for TableType {
 pub struct IntoHeapType(pub wasmparser::HeapType);
 
 impl From<IntoHeapType> for HeapType {
-    fn from(val: IntoHeapType) -> Self {
-        match val.0 {
-            wasmparser::HeapType::Indexed(index) => HeapType::Indexed(index),
-            wasmparser::HeapType::Func => HeapType::Func,
-            wasmparser::HeapType::Extern => HeapType::Extern,
-            wasmparser::HeapType::Any => HeapType::Any,
-            wasmparser::HeapType::None => HeapType::None,
-            wasmparser::HeapType::NoExtern => HeapType::NoExtern,
-            wasmparser::HeapType::NoFunc => HeapType::NoFunc,
-            wasmparser::HeapType::Eq => HeapType::Eq,
-            wasmparser::HeapType::Struct => HeapType::Struct,
-            wasmparser::HeapType::Array => HeapType::Array,
-            wasmparser::HeapType::I31 => HeapType::I31,
-        }
+    fn from(_val: IntoHeapType) -> Self {
+        todo!()
     }
 }
 

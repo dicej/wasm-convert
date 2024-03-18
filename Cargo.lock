@@ -3,6 +3,12 @@
 version = 3
 
 [[package]]
+name = "bitflags"
+version = "2.4.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ed570934406eb16438a4e976b1b4500774099c13b8cb96eec99f620f05090ddf"
+
+[[package]]
 name = "equivalent"
 version = "1.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -46,19 +52,18 @@ dependencies = [
 
 [[package]]
 name = "wasm-encoder"
-version = "0.32.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1ba64e81215916eaeb48fee292f29401d69235d62d8b8fd92a7b2844ec5ae5f7"
+version = "0.201.0"
+source = "git+https://github.com/dicej/wasm-tools?branch=adapt-world-imports#a3e308dbe3b1555c7873ce199adf81e76ea01224"
 dependencies = [
  "leb128",
 ]
 
 [[package]]
 name = "wasmparser"
-version = "0.112.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e986b010f47fcce49cf8ea5d5f9e5d2737832f12b53ae8ae785bbe895d0877bf"
+version = "0.201.0"
+source = "git+https://github.com/dicej/wasm-tools?branch=adapt-world-imports#a3e308dbe3b1555c7873ce199adf81e76ea01224"
 dependencies = [
+ "bitflags",
  "indexmap",
  "semver",
 ]
