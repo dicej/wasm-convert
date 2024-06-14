@@ -33,6 +33,7 @@ impl From<IntoMemoryType> for MemoryType {
             shared: val.0.shared,
             minimum: val.0.initial,
             maximum: val.0.maximum,
+	    page_size_log2: val.0.page_size_log2
         }
     }
 }
@@ -44,6 +45,7 @@ impl From<IntoGlobalType> for GlobalType {
         GlobalType {
             val_type: IntoValType(val.0.content_type).into(),
             mutable: val.0.mutable,
+	    shared: val.0.shared
         }
     }
 }
@@ -80,6 +82,7 @@ impl From<IntoTableType> for TableType {
             element_type: IntoRefType(val.0.element_type).into(),
             minimum: val.0.initial,
             maximum: val.0.maximum,
+	    table64: val.0.table64
         }
     }
 }
@@ -138,16 +141,19 @@ impl From<IntoEntityType> for EntityType {
                 element_type: IntoRefType(ty.element_type).into(),
                 minimum: ty.initial,
                 maximum: ty.maximum,
+		table64: ty.table64
             }),
             TypeRef::Memory(ty) => EntityType::Memory(MemoryType {
                 minimum: ty.initial,
                 maximum: ty.maximum,
                 memory64: ty.memory64,
                 shared: ty.shared,
+		page_size_log2: ty.page_size_log2
             }),
             TypeRef::Global(ty) => EntityType::Global(GlobalType {
                 val_type: IntoValType(ty.content_type).into(),
                 mutable: ty.mutable,
+		shared: ty.shared
             }),
             TypeRef::Tag(ty) => EntityType::Tag(TagType {
                 kind: IntoTagKind(ty.kind).into(),
