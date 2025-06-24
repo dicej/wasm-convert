@@ -1,0 +1,1 @@
+This crate predates upstream support for converting between wasmparser and wasm-encoder types in wasm-encoder. You can currently use [`wasm_encoder::reencode`](https://docs.rs/wasm-encoder/latest/wasm_encoder/reencode/) for a superset of this functionality.
